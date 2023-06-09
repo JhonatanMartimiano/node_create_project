@@ -1,8 +1,16 @@
 let express = require("express"),
-    router = express.Router()
+    router = express.Router(),
+    Usuario = require("./../models/usuario")
 
-router.get("/dashboard/home", (req, res) => {
-    res.render("modules/dash/home")
+router.get("/dashboard/home", async (req, res) => {
+    try {
+        let usuarios = await Usuario.count()
+        console.log(usuarios)
+
+        res.render("modules/dash/home", { usuarios })
+    } catch (error) {
+        console.error(error)
+    }
 })
 
 module.exports = router

@@ -76,6 +76,11 @@ router.post("/usuarios/usuario/:id", async (req, res) => {
 router.delete("/usuarios/usuario/:id", async (req, res) => {
     try {
         await Usuario.sync()
+        let usuario = await Usuario.findByPk(req.params.id)
+        if (!usuario) {
+            req.flash("warning_message", "Usuário não encontrado")
+            res.redirect("/app/usuarios/usuarios")
+        }
         await Usuario.destroy({
             where: {
                 id: req.params.id

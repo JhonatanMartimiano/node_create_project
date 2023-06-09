@@ -15,36 +15,20 @@
 <section class="content">
 	<ul class="col-md-12">
 		<div class="row">
-			{{#each recursos}}
-			{{#if operacoes}}
-			<a href="/app/recursos/recurso/{{codigo}}" class="btn-resource col-md-2" data-resource="{{codigo}}"
-				data-description="{{descricao}}">
-				<div class="small-box bg-success">
-					<div class="inner">
-						<h3>{{codigo}}</h3>
-						<p>{{descricao}}</p>
-						{{#each operacoes}}
-						<div class="d-flex">
-							<p>{{descricao}}</p>
-							<p class="mx-1">-</p>
-							<p>{{op.op}}</p>
-						</div>
-						{{/each}}
-					</div>
-				</div>
-			</a>
-			{{else}}
-			<a href="#" class="col-md-2">
+			<div class="col-lg-3 col-6">
 				<div class="small-box bg-warning">
 					<div class="inner">
-						<h3>{{codigo}}</h3>
+						<h3>{{usuarios}}</h3>
 
-						<p>{{descricao}}</p>
+						<p>Usuários</p>
 					</div>
+					<div class="icon">
+						<i class="ion ion-person-add"></i>
+					</div>
+					<a href="/app/usuarios/usuarios" class="small-box-footer">Mais informações
+						<i class="fas fa-arrow-circle-right"></i></a>
 				</div>
-			</a>
-			{{/if}}
-			{{/each}}
+			</div>
 		</div>
 	</ul>
 </section>
