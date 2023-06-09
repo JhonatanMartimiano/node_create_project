@@ -1,0 +1,122 @@
+{{#if usuario}}
+<section class="content-header">
+	<div class="container-fluid">
+		<div class="row mb-2">
+			<div class="col-sm-6">
+				<h1>Editar Usuário</h1>
+			</div>
+			<div class="col-sm-6">
+				<ol class="breadcrumb float-sm-right">
+					<li class="breadcrumb-item active">Editar Usuário</li>
+					<li class="breadcrumb-item"><a href="/app/usuarios/usuarios">Home</a></li>
+				</ol>
+			</div>
+		</div>
+	</div><!-- /.container-fluid -->
+</section>
+<section class="content">
+	<div class="row">
+		<div class="col-12">
+			<div class="card card-primary">
+				<div class="card-header">
+					<h3 class="card-title">Dados</h3>
+				</div>
+				<!-- /.card-header -->
+				<!-- form start -->
+				<form action="/app/usuarios/usuario/{{usuario.id}}" method="post">
+					<div class="d-flex justify-content-center align-items-center mt-1">
+						<a href="/app/usuarios/usuario" class="btn btn-success btn-xs mr-2" title="Adicionar">
+							<span class="fas fa-plus"></span>
+						</a>
+						<button type="button" class="btn btn-danger btn-xs" title="Deletar"
+							data-delete="/app/usuarios/usuario/{{usuario.id}}" data-action="delete"
+							data-confirm="ATENÇÃO: Tem certeza que deseja excluir esse dado e todos os dados relacionados a ele? Essa ação não pode ser feita!">
+							<span class="fas fa-trash"></span>
+						</button>
+					</div>
+					<input type="hidden" name="action" value="update" />
+					<div class="card-body">
+						<div class="form-row">
+							<div class="form-group col-md-3">
+								<label>Nome Completo</label>
+								<input type="text" name="full_name" value="{{usuario.full_name}}"
+									class="form-control form-control-sm" />
+							</div>
+							<div class="form-group col-md-3">
+								<label>E-mail</label>
+								<input type="email" name="email" value="{{usuario.email}}"
+									class="form-control form-control-sm" />
+							</div>
+							<div class="form-group col-md-3">
+								<label>Senha</label>
+								<input type="password" name="password" class="form-control form-control-sm" />
+							</div>
+						</div>
+					</div>
+					<!-- /.card-body -->
+
+					<div class="card-footer">
+						<a href="/app/usuarios/usuarios" class="btn btn-danger">Voltar</a>
+						<button type="submit" class="btn btn-success">Editar</button>
+					</div>
+				</form>
+			</div>
+			<!-- /.card -->
+		</div>
+	</div>
+</section>
+{{else}}
+<section class="content-header">
+	<div class="container-fluid">
+		<div class="row mb-2">
+			<div class="col-sm-6">
+				<h1>Criar Usuário</h1>
+			</div>
+			<div class="col-sm-6">
+				<ol class="breadcrumb float-sm-right">
+					<li class="breadcrumb-item active">Criar Usuário</li>
+					<li class="breadcrumb-item"><a href="/app/usuarios/usuarios">Home</a></li>
+				</ol>
+			</div>
+		</div>
+	</div><!-- /.container-fluid -->
+</section>
+<section class="content">
+	<div class="row">
+		<div class="col-12">
+			<div class="card card-primary">
+				<div class="card-header">
+					<h3 class="card-title">Dados</h3>
+				</div>
+				<!-- /.card-header -->
+				<!-- form start -->
+				<form action="/app/usuarios/usuario" method="post">
+					<input type="hidden" name="action" value="create" />
+					<div class="card-body">
+						<div class="form-row">
+							<div class="form-group col-md-3">
+								<label>Nome Completo</label>
+								<input type="text" name="full_name" class="form-control form-control-sm" />
+							</div>
+							<div class="form-group col-md-3">
+								<label>E-mail</label>
+								<input type="email" name="email" class="form-control form-control-sm" />
+							</div>
+							<div class="form-group col-md-3">
+								<label>Senha</label>
+								<input type="password" name="password" class="form-control form-control-sm" />
+							</div>
+						</div>
+					</div>
+					<!-- /.card-body -->
+					<div class="card-footer">
+						<a href="/app/usuarios/usuarios" class="btn btn-danger">Voltar</a>
+						<button type="submit" class="btn btn-success">Criar</button>
+					</div>
+				</form>
+			</div>
+			<!-- /.card -->
+		</div>
+	</div>
+</section>
+{{/if}}

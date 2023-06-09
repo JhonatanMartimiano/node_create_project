@@ -1,0 +1,16 @@
+{{#if success_message}}
+	<span class="toast-message d-none" data-status="success">{{success_message}}</span>
+{{/if}}
+
+{{#if info_message}}
+	<span class="toast-message d-none" data-status="info">{{info_message}}</span>
+{{/if}}
+
+{{#if warning_message}}
+	<span class="toast-message d-none" data-status="warning">{{warning_message}}</span>
+{{/if}}
+
+{{#if error_message}}
+	<span class="toast-message d-none" data-status="error">{{error_message}}</span>
+{{/if}}
+<script src="/app/assets/js/custom/message.js"></script>
