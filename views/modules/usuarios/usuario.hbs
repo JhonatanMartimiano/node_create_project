@@ -39,8 +39,14 @@
 						<div class="form-row">
 							<div class="form-group col-md-3">
 								<label>Nome Completo</label>
-								<input type="text" name="full_name" value="{{usuario.full_name}}"
+								<input type="text" name="nome_completo" value="{{usuario.nome_completo}}"
 									class="form-control form-control-sm" />
+							</div>
+							<div class="form-group col-md-3">
+								<label>Perfil de Acesso</label>
+								<select name="perfil_acesso" class="form-control form-control-sm">
+									<option {{selected usuario.perfil_acesso "admin"}} value="admin">Admin</option>
+								</select>
 							</div>
 							<div class="form-group col-md-3">
 								<label>E-mail</label>
@@ -49,7 +55,7 @@
 							</div>
 							<div class="form-group col-md-3">
 								<label>Senha</label>
-								<input type="password" name="password" class="form-control form-control-sm" />
+								<input type="password" name="senha" class="form-control form-control-sm" />
 							</div>
 						</div>
 					</div>
@@ -96,15 +102,21 @@
 						<div class="form-row">
 							<div class="form-group col-md-3">
 								<label>Nome Completo</label>
-								<input type="text" name="full_name" class="form-control form-control-sm" />
+								<input type="text" name="nome_completo" class="form-control form-control-sm" />
 							</div>
 							<div class="form-group col-md-3">
 								<label>E-mail</label>
 								<input type="email" name="email" class="form-control form-control-sm" />
 							</div>
 							<div class="form-group col-md-3">
+								<label>Perfil de Acesso</label>
+								<select name="perfil_acesso" class="form-control form-control-sm">
+									<option value="admin">Admin</option>
+								</select>
+							</div>
+							<div class="form-group col-md-3">
 								<label>Senha</label>
-								<input type="password" name="password" class="form-control form-control-sm" />
+								<input type="password" name="senha" class="form-control form-control-sm" />
 							</div>
 						</div>
 					</div>

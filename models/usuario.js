@@ -1,7 +1,11 @@
 const db = require("./../db"),
 	{ DataTypes } = require("sequelize"),
 	Usuario = db.define("usuarios", {
-		full_name: {
+		nome_completo: {
+			type: DataTypes.STRING("255"),
+			allowNull: false
+		},
+		perfil_acesso: {
 			type: DataTypes.STRING("255"),
 			allowNull: false
 		},
@@ -10,7 +14,7 @@ const db = require("./../db"),
 			allowNull: false,
 			unique: true
 		},
-		password: {
+		senha: {
 			type: DataTypes.STRING("255"),
 			allowNull: false
 		}

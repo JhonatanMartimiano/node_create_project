@@ -5,8 +5,6 @@ let express = require("express"),
 router.get("/dashboard/home", async (req, res) => {
     try {
         let usuarios = await Usuario.count()
-        console.log(usuarios)
-
         res.render("modules/dash/home", { usuarios })
     } catch (error) {
         console.error(error)

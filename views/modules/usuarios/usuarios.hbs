@@ -30,6 +30,7 @@
 							<tr>
 								<th>ID</th>
 								<th>Nome Completo</th>
+								<th>Perfil de Acesso</th>
 								<th>E-mail</th>
 							</tr>
 						</thead>
@@ -39,7 +40,8 @@
 								<td>
 									<a href="/app/usuarios/usuario/{{id}}" class="nav-link p-0">{{id}}</a>
 								</td>
-								<td>{{full_name}}</td>
+								<td>{{nome_completo}}</td>
+								<td>{{perfil_acesso}}</td>
 								<td>{{email}}</td>
 							</tr>
 							{{/each}}

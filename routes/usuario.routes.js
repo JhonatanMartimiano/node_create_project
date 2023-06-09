@@ -21,9 +21,10 @@ router.post("/usuarios/usuario", async (req, res) => {
     try {
         await Usuario.sync();
         await Usuario.create({
-            full_name: req.body.full_name,
+            nome_completo: req.body.nome_completo,
+            perfil_acesso: req.body.perfil_acesso,
             email: req.body.email,
-            password: req.body.password
+            senha: req.body.senha
         })
 
         req.flash("success_message", "Usuário cadastrado com sucesso!")
@@ -38,7 +39,7 @@ router.get("/usuarios/usuario/:id", async (req, res) => {
         await Usuario.sync()
         let usuario = await Usuario.findByPk(req.params.id, { raw: true })
         if (!usuario) {
-            req.flash("warning_message", "Usuário não encontrado")
+            req.flash("warning_message", "Usuário não encontrado!")
             res.redirect("/app/usuarios/usuarios")
         }
         res.render("modules/usuarios/usuario", { usuario })
@@ -52,13 +53,14 @@ router.post("/usuarios/usuario/:id", async (req, res) => {
         await Usuario.sync()
         let usuario = await Usuario.findByPk(req.params.id, { raw: true })
         if (!usuario) {
-            req.flash("warning_message", "Usuário não encontrado")
+            req.flash("warning_message", "Usuário não encontrado!")
             res.redirect("/app/usuarios/usuarios")
         }
         await Usuario.update({
-            full_name: req.body.full_name,
+            nome_completo: req.body.nome_completo,
+            perfil_acesso: req.body.perfil_acesso,
             email: req.body.email,
-            password: req.body.password ? req.body.password : usuario.password
+            senha: req.body.senha ? req.body.senha : usuario.senha
         },
         {
             where: {
@@ -78,7 +80,7 @@ router.delete("/usuarios/usuario/:id", async (req, res) => {
         await Usuario.sync()
         let usuario = await Usuario.findByPk(req.params.id)
         if (!usuario) {
-            req.flash("warning_message", "Usuário não encontrado")
+            req.flash("warning_message", "Usuário não encontrado!")
             res.redirect("/app/usuarios/usuarios")
         }
         await Usuario.destroy({
@@ -87,6 +89,7 @@ router.delete("/usuarios/usuario/:id", async (req, res) => {
             }
         })
 
+        req.flash("success_message", "Usuário excluido com sucesso!")
         res.json({ redirect: "/app/usuarios/usuarios" })
     } catch (error) {
         console.error(error)

@@ -36,21 +36,6 @@ app.engine(
 					return text
 				}
 			},
-			statusOperation: (status) => {
-				switch (status) {
-					case "started":
-						return "INICIADA"
-						break
-
-					case "finished":
-						return "FINALIZADA"
-						break
-
-					case "paused":
-						return "PAUSADA"
-						break
-				}
-			},
 			selected: (firstValue, secondValue) => {
 				if (Array.isArray(secondValue)) {
 					return secondValue.includes(firstValue) ? "selected" : ""
@@ -103,7 +88,7 @@ function verifyAuthentication(req, res, next) {
 
 app.use("/", webRoutes)
 app.use("/api", apiRoutes)
-// app.use(verifyAuthentication)
+app.use(verifyAuthentication)
 app.use("/app", dashRoutes)
 app.use("/app", usuarioRoutes)
 

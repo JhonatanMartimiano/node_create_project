@@ -11,15 +11,15 @@ router.get("/login", (req, res) => {
 	})
 })
 router.post("/login", async (req, res) => {
-	let { email, password } = req.body
-	if (email && password) {
+	let { email, senha } = req.body
+	if (email && senha) {
 		try {
 			await Usuario.sync()
 			let usuario = await Usuario.findOne({
 				raw: true,
 				where: {
 					email,
-					password
+					senha
 				}
 			})
 			if (usuario) {
